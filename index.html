@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karyon Resorts - Your Perfect Getaway in Kalinga Nagar, Duburi, Jajpur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="images/logo gayatri.png" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',      // Deep navy blue
+                        secondary: '#f8f9fa',    // Light gray
+                        accent: '#d4af37',       // Elegant gold
+                        gold: '#b8860b',         // Darker gold
+                        darkbrown: '#2c1810',    // Rich dark brown
+                        lightbrown: '#8b6f47',   // Warm brown
+                        cream: '#faf8f3',        // Warm cream
+                        sage: '#9caf88',         // Soft sage green
+                        burgundy: '#722f37',     // Deep burgundy
+                        copper: '#b87333',      // Warm copper
+                        // Dark mode colors
+                        dark: {
+                            bg: '#1a1a1a',
+                            surface: '#2d2d2d',
+                            text: '#e5e5e5'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Arial', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'gradient-luxury': 'linear-gradient(135deg, #1e3a5f 0%, #2c1810 100%)',
+                        'gradient-gold': 'linear-gradient(135deg, #d4af37 0%, #b8860b 100%)',
+                        'gradient-cream': 'linear-gradient(135deg, #faf8f3 0%, #f8f9fa 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #d4af37, #b8860b);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+        }
+
+        .dropdown-trigger:hover .dropdown {
+            display: block;
+        }
+
+        .cookie-banner {
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .booking-widget {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #d4af37;
+            color: #1e3a5f;
+            background: linear-gradient(135deg, #faf8f3 0%, #f8f9fa 100%);
+        }
+
+        .tab-inactive {
+            border-bottom: none;
+            color: #6b7280;
+        }
+
+        .room-tab-active {
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .luxury-card {
+            background: linear-gradient(135deg, #ffffff 0%, #faf8f3 100%);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .dark .luxury-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border-color: #404040;
+        }
+
+        .luxury-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 58, 95, 0.1);
+            border-color: #d4af37;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.7) 0%, rgba(44, 24, 16, 0.5) 100%);
+        }
+
+        .section-bg {
+            background: linear-gradient(135deg, #faf8f3 0%, #f8f9fa 100%);
+        }
+
+        .dark .section-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        /* Dark mode styles */
+        .dark {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+
+        .dark .bg-cream {
+            background-color: #1a1a1a;
+        }
+
+        .dark .bg-\[#fdf6ee\] {
+            background-color: #2d2d2d;
+        }
+
+        .dark .text-primary {
+            color: #d4af37;
+        }
+
+        .dark .text-gray-700 {
+            color: #b0b0b0;
+        }
+
+        .dark .text-gray-600 {
+            color: #a0a0a0;
+        }
+
+        .dark .text-black {
+            color: #e5e5e5;
+        }
+
+        /* Theme Toggle Switch */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle.active {
+            background: #d4af37;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle.active::before {
+            transform: translateX(30px);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-cream dark:bg-dark-bg transition-colors duration-300">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919937038271?text=Hi, I would like to get a quote for Karyon Resorts"
+        class="floating-whatsapp bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Header -->
+    <header
+        class="bg-[#fdf6ee] dark:bg-dark-surface shadow-lg fixed w-full z-10 transition-all duration-300 border-b-2 border-accent"
+        id="header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🌿</span>
+                    <h1 class="text-2xl font-bold text-primary dark:text-accent">Karyon<span class="text-accent">
+                            Resorts</span></h1>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html"
+                    class="text-primary dark:text-accent hover:text-accent font-medium nav-link transition-colors">Home</a>
+                <a href="#rooms"
+                    class="text-primary dark:text-accent hover:text-accent font-medium nav-link transition-colors">Rooms</a>
+                <a href="viewgallery.html"
+                    class="text-primary dark:text-accent hover:text-accent font-medium nav-link transition-colors">Gallery</a>
+                <a href="#about"
+                    class="text-primary dark:text-accent hover:text-accent font-medium nav-link transition-colors">About</a>
+                <a href="#contact"
+                    class="text-primary dark:text-accent hover:text-accent font-medium nav-link transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Theme Toggle -->
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-sun absolute top-1 left-2 text-yellow-500 text-sm"></i>
+                    <i class="fas fa-moon absolute top-1 right-2 text-blue-500 text-sm"></i>
+                </div>
+            </div>
+
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-primary dark:text-accent focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-[#fdf6ee] dark:bg-dark-surface shadow-md border-t border-accent">
+            <div class="container mx-auto px-4 py-3">
+                <a href="index.html"
+                    class="block py-2 text-primary dark:text-accent hover:text-accent font-medium transition-colors">Home</a>
+                <a href="#rooms"
+                    class="block py-2 text-primary dark:text-accent hover:text-accent font-medium transition-colors">Rooms</a>
+                <a href="viewgallery.html"
+                    class="block py-2 text-primary dark:text-accent hover:text-accent font-medium transition-colors">Gallery</a>
+                <a href="#about"
+                    class="block py-2 text-primary dark:text-accent hover:text-accent font-medium transition-colors">About</a>
+                <a href="#contact"
+                    class="block py-2 text-primary dark:text-accent hover:text-accent font-medium transition-colors">Contact</a>
+                <div class="flex items-center justify-between pt-4 border-t border-accent mt-4">
+                    <span class="text-primary dark:text-accent">Dark Mode</span>
+                    <div class="theme-toggle" id="mobile-theme-toggle">
+                        <i class="fas fa-sun absolute top-1 left-2 text-yellow-500 text-sm"></i>
+                        <i class="fas fa-moon absolute top-1 right-2 text-blue-500 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[95vh] overflow-hidden">
+        <video src="videos/karyon resorts .mp4" autoplay muted loop alt="Karyon Resorts" class="w-full h-full object-cover">
+        <div class="absolute inset-0 hero-overlay flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="text-4xl md:text-6xl font-serif mb-4">
+                    🌿 Welcome to Karyon Resorts
+                </h1>
+                <p class="text-xl md:text-2xl mb-4 text-cream">
+                    Your Perfect Getaway in Kalinga Nagar, Duburi, Jajpur
+                </p>
+                <p class="text-lg md:text-xl mb-8 text-cream">
+                    Where Hospitality Meets Elegance
+                </p>
+                <button
+                    class="bg-gradient-gold text-white px-8 py-3 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <a href="admin.php">BOOK YOUR STAY</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5 section-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-serif text-center mb-12 text-primary dark:text-accent">Experience
+                Luxury Like Never Before in Kalinga Nagar</h2>
+
+            <div class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch" id="brief-content">
+                <!-- Image Column -->
+                <div class="flex">
+                    <img src="images/landing1..JPG" alt="Karyon Resorts"
+                        class="w-full h-auto object-cover rounded-lg shadow-xl border-2 border-accent">
+                </div>
+
+                <!-- Text Column -->
+                <div id="about" class="flex flex-col justify-between">
+                    <div class="text-black dark:text-dark-text">
+                        <h2 class="text-3xl font-bold text-primary dark:text-accent mb-6">About Karyon Resorts</h2>
+                        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-justify pr-4 mb-4">
+                            At Karyon Resorts, we don't just offer stays — we create meaningful experiences. Nestled in
+                            the heart of Kalinga Nagar, Duburi, Jajpur, our resort is a tranquil retreat where comfort
+                            meets charm.
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-justify pr-4 mb-4">
+                            Whether you're visiting for business or leisure, you'll find a space that feels like home.
+                            Thoughtfully designed to blend modern amenities with natural beauty.
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-justify pr-4 mb-6">
+                            Our vision is simple — to deliver warm hospitality wrapped in elegance, ensuring every guest
+                            leaves with lasting memories and a desire to return.
+                        </p>
+                    </div>
+
+                    <!-- Contact Details Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
+                        <div class="luxury-card p-4 rounded-lg">
+                            <h4 class="font-medium mb-2 text-primary dark:text-accent">Location</h4>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                                <p class="text-gray-700 dark:text-gray-300">Jajpur Road, Kalinga Nagar, Duburi, Jajpur,
+                                    Odisha 755026</p>
+                            </div>
+                        </div>
+
+                        <div class="luxury-card p-4 rounded-lg">
+                            <h4 class="font-medium mb-2 text-primary dark:text-accent">Resort Contact Details</h4>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-phone-alt mr-2 text-accent"></i>
+                                <p class="text-gray-700 dark:text-gray-300">+91 99370 38271</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-2 text-accent"></i>
+                                <p class="text-gray-700 dark:text-gray-300">karyonduburi@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="luxury-card p-4 rounded-lg">
+                            <h4 class="font-medium mb-2 text-primary dark:text-accent">Reception Hours</h4>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-clock mr-2 text-accent"></i>
+                                <p class="text-gray-700 dark:text-gray-300">24/7 Front Desk & Security</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-8 hidden" id="more-content">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
+                    Additional information about Karyon Resorts will be displayed here. This section includes
+                    more details about the resort's history, architecture, and unique features.
+                </p>
+            </div>
+
+            <div class="mt-0">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-serif text-primary dark:text-accent">Facilities and Amenities</h3>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                    <!-- Rooms -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-bed text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">ROOMS</p>
+                    </div>
+
+                    <!-- Restaurant -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-utensils text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">RESTAURANT</p>
+                    </div>
+
+                    <!-- Conference Hall -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">CONFERENCE HALL</p>
+                    </div>
+
+                    <!-- Landscaped Lawns -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-leaf text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">LANDSCAPED LAWNS</p>
+                    </div>
+
+                    <!-- Parking -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-parking text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">AMPLE PARKING</p>
+                    </div>
+
+                    <!-- 24/7 Security -->
+                    <div class="flex flex-col items-center luxury-card p-6 rounded-lg">
+                        <div
+                            class="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-center font-medium text-primary dark:text-accent">24/7 SECURITY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Section -->
+    <section id="rooms" class="pb-5 pt-5 bg-[#fdf6ee] dark:bg-dark-surface">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-serif text-center mb-4 text-primary dark:text-accent">Room Categories
+                at Karyon Resorts</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 italic mb-12 max-w-4xl mx-auto">
+                Discover spacious and stylish rooms crafted for your ultimate comfort. Whether you're here for business
+                or leisure, enjoy modern amenities, prompt service, and a truly welcoming stay in Kalinga Nagar.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Executive Room -->
+                <div class="luxury-card rounded-lg shadow-xl overflow-hidden flex flex-col justify-between">
+                    <!-- Replace Image with Video -->
+                    <video class="w-full h-64 object-cover" autoplay muted loop playsinline>
+                        <source src="videos/executiverooms.mp4 " type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-serif mb-4 text-center text-primary dark:text-accent">✨ Executive Room
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+                            Designed for comfort and convenience, perfect for solo travelers or business guests.
+                        </p>
+
+                        <!-- Features List with Icons -->
+                        <div class="mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2">Features:</h4>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+                                <li><i class="fas fa-snowflake text-primary mr-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-bed text-primary mr-2"></i>Comfortable Beds</li>
+                                <li><i class="fas fa-bath text-primary mr-2"></i>Attached Modern Bathroom</li>
+                                <li><i class="fas fa-concierge-bell text-primary mr-2"></i>Room Service</li>
+                                <li><i class="fas fa-wifi text-primary mr-2"></i>Free Wi-Fi</li>
+                                <li><i class="fas fa-tv text-primary mr-2"></i>LED TV</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tariff Info -->
+                        <div class="text-center mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2">💰 Tariff:</h4>
+                            <p class="text-accent font-bold">₹3,500/- (Single Occupancy)</p>
+                            <p class="text-accent font-bold">₹4,000/- (Double Occupancy)</p>
+                        </div>
+
+                        <!-- Book Button -->
+                        <div class="mt-auto flex justify-center">
+                            <button
+                                class="bg-gradient-gold hover:shadow-lg text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                                <a href="admin.php">BOOK NOW</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Deluxe Room -->
+                <div class="luxury-card rounded-lg shadow-xl overflow-hidden flex flex-col justify-between">
+                    <!-- Replaced image with video -->
+                    <video class="w-full h-64 object-cover" autoplay muted loop playsinline>
+                        <source src="videos/delux rooms.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-serif mb-4 text-center text-primary dark:text-accent">Deluxe Room</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+                            Spacious and elegantly styled for leisure and relaxation.
+                        </p>
+
+                        <!-- Features with Icons -->
+                        <div class="mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2">Features:</h4>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+                                <li><i class="fas fa-snowflake text-primary mr-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-bed text-primary mr-2"></i>Comfortable Beds</li>
+                                <li><i class="fas fa-bath text-primary mr-2"></i>Attached Modern Bathroom</li>
+                                <li><i class="fas fa-concierge-bell text-primary mr-2"></i>Room Service</li>
+                                <li><i class="fas fa-wifi text-primary mr-2"></i>Free Wi-Fi</li>
+                                <li><i class="fas fa-tv text-primary mr-2"></i>LED TV</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tariff with Icon -->
+                        <div class="text-center mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2"><i
+                                    class="fas fa-rupee-sign text-primary mr-2"></i>Tariff:</h4>
+                            <p class="text-accent font-bold">₹4,500/- (Single Occupancy)</p>
+                            <p class="text-accent font-bold">₹5,000/- (Double Occupancy)</p>
+                        </div>
+
+                        <!-- Book Button -->
+                        <div class="mt-auto flex justify-center">
+                            <button
+                                class="bg-gradient-gold hover:shadow-lg text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                                <a href="admin.php">BOOK NOW</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Premium Room with Video -->
+                <div class="luxury-card rounded-lg shadow-xl overflow-hidden flex flex-col justify-between">
+                    <video autoplay muted loop class="w-full h-64 object-cover">
+                        <source src="videos/premium rooms.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-serif mb-4 text-center text-primary dark:text-accent">
+                            <i class="fas fa-crown text-primary mr-2"></i>Premium Room
+                        </h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+                            Our finest offering with enhanced space and aesthetics — ideal for those seeking a premium
+                            stay experience.
+                        </p>
+
+                        <!-- Features with Icons -->
+                        <div class="mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2">Features:</h4>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+                                <li><i class="fas fa-snowflake text-primary mr-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-bed text-primary mr-2"></i>Comfortable Beds</li>
+                                <li><i class="fas fa-bath text-primary mr-2"></i>Attached Modern Bathroom</li>
+                                <li><i class="fas fa-concierge-bell text-primary mr-2"></i>Room Service</li>
+                                <li><i class="fas fa-wifi text-primary mr-2"></i>Free Wi-Fi</li>
+                                <li><i class="fas fa-tv text-primary mr-2"></i>LED TV</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tariff with Icon -->
+                        <div class="text-center mb-4">
+                            <h4 class="font-bold text-primary dark:text-accent mb-2">
+                                <i class="fas fa-rupee-sign text-primary mr-2"></i>Tariff:
+                            </h4>
+                            <p class="text-accent font-bold">₹5,500/- (Single Occupancy)</p>
+                            <p class="text-accent font-bold">₹6,000/- (Double Occupancy)</p>
+                        </div>
+
+                        <!-- Book Now Button -->
+                        <div class="mt-auto flex justify-center">
+                            <button
+                                class="bg-gradient-gold hover:shadow-lg text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                                <a href="admin.php">BOOK NOW</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="container mx-auto px-4 py-12 bg-[#fdf6ee] dark:bg-dark-surface">
+
+        <!-- Multi-Cuisine Restaurant -->
+        <div class="flex flex-col md:flex-row-reverse flex-col-reverse items-stretch gap-8 mb-16">
+            <div class="md:w-1/2 h-[60vh]">
+                <video autoplay muted loop src="videos/restrunt.mp4" alt="Karyon Restaurant"
+                    class="w-full h-full object-cover rounded-lg shadow-xl border-2 border-accent">
+                </video>
+            </div>
+            <div class="md:w-1/2 flex flex-col justify-center luxury-card p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-primary dark:text-accent">🍽️ Multi-Cuisine Restaurant</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Experience culinary excellence at our multi-cuisine restaurant. From traditional Indian delicacies
+                    to international favorites, our skilled chefs prepare every dish with the finest ingredients and
+                    authentic flavors.
+                </p>
+                <button
+                    class="bg-gradient-gold hover:shadow-lg text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 self-start">
+                    <a href="viewgallery.html">Explore More</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Conference Hall -->
+        <div class="flex flex-col-reverse md:flex-row  items-center gap-8 mb-16">
+            <div class="md:w-1/2 w-full  h-[50vh] sm:h-[60vh] overflow-hidden">
+                <video muted autoplay loop src="videos/marrige hall mandap.mp4" alt="Conference Hall"
+                    class="sm:w-full w-[150%] h-full object-cover rounded-lg shadow-xl border-2 border-accent">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-4 text-primary dark:text-accent">🏛 Conference Hall at Karyon Resorts
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    A versatile venue for meetings, events, and celebrations — designed to suit every occasion. Modern
+                    amenities, elegant interiors, and professional service make it the perfect choice for corporate and
+                    social events.
+                </p>
+                <div class="mb-4">
+                    <h4 class="text-xl font-bold text-primary dark:text-accent mb-3">📋 Seating & Capacity Options:</h4>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><strong>🎭 Theatre Style</strong> – Up to 100 Guests</li>
+                        <li><strong>🪑 Cluster Style</strong> – Up to 60 Guests</li>
+                        <li><strong>🔺 U-Shape Style</strong> – Up to 50 Guests</li>
+                        <li><strong>🌊 Floating Capacity</strong> – 150+ Guests</li>
+                    </ul>
+                </div>
+                <button
+                    class="bg-gradient-gold hover:shadow-lg text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                    <a href="viewgallery.html">Explore More</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Landscaped Lawns -->
+        <div class="flex flex-col md:flex-row-reverse flex-col-reverse items-stretch gap-8 mb-16">
+            <div class="md:w-1/2 h-[60vh]">
+                <video muted autoplay loop src="videos/gayatri videos.mp4" alt="Landscaped Lawns"
+                    class="w-full h-full object-cover rounded-lg shadow-xl border-2 border-accent">
+            </div>
+            <div class="md:w-1/2 flex flex-col justify-center luxury-card p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-primary dark:text-accent">🌿 Landscaped Lawns for Events</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Host outdoor functions in beautifully maintained green spaces. Our landscaped lawns provide the
+                    perfect backdrop for weddings, celebrations, and special events with lush greenery and serene
+                    ambiance.
+                </p>
+                <button
+                    class="bg-gradient-gold hover:shadow-lg text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 self-start">
+                    <a href="viewgallery.html">Explore More</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Additional Amenities -->
+        <div class="flex flex-col md:flex-row flex-col-reverse items-center gap-8 mb-16">
+            <div class="md:w-1/2 w-full h-[60vh]">
+                <video muted autoplay loop src="videos/restro.mp4" alt="Resort Amenities"
+                    class="w-full h-full object-cover rounded-lg shadow-xl border-2 border-accent">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-4 text-primary dark:text-accent">🌟 Premium Amenities</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Enjoy our comprehensive range of facilities including ample parking space, 24×7 front desk &
+                    security, power backup, and all modern amenities designed for your comfort and convenience.
+                </p>
+                <button
+                    class="bg-gradient-gold hover:shadow-lg text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                    <a href="viewgallery.html">Explore More</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="flex flex-col md:flex-row-reverse flex-col-reverse items-stretch gap-8">
+            <div class="md:w-1/2 h-[60vh]">
+                <video muted autoplay loop src="videos/bunket hall.mp4" alt="Karyon Resorts Experience"
+                    class="w-full h-full object-cover rounded-lg shadow-xl border-2 border-accent">
+            </div>
+            <div class="md:w-1/2 flex flex-col justify-center luxury-card p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-primary dark:text-accent">🌟 Why Choose Karyon Resorts</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Experience unparalleled hospitality where every detail is crafted for your comfort. From our
+                    multi-cuisine restaurant to landscaped gardens, conference facilities to 24/7 security - we ensure
+                    your stay is nothing short of exceptional.
+                </p>
+                <button
+                    class="bg-gradient-gold hover:shadow-lg text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 self-start">
+                    <a href="viewgallery.html">Explore More</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 section-bg">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold text-primary dark:text-accent mb-6">Contact Us</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">We're here to answer any questions you may have
+                        about our resort and services.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start luxury-card p-4 rounded-lg">
+                            <div class="text-accent text-xl mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-accent">Address</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Jajpur Road, Kalinga Nagar, Duburi, Jajpur,
+                                    Odisha 755026</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start luxury-card p-4 rounded-lg">
+                            <div class="text-accent text-xl mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-accent">Phone</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+91 99370 38271</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start luxury-card p-4 rounded-lg">
+                            <div class="text-accent text-xl mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-accent">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">karyonduburi@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start luxury-card p-4 rounded-lg">
+                            <div class="text-accent text-xl mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-accent">Reception Hours</h4>
+                                <p class="text-gray-600 dark:text-gray-300">24/7 Front Desk & Security</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4 text-primary dark:text-accent">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="text-primary dark:text-accent hover:text-accent text-2xl transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#"
+                                class="text-primary dark:text-accent hover:text-accent text-2xl transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" data-delay="0.2">
+                    <form action="send.php" method="post" class="luxury-card p-8 rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-bold text-primary dark:text-accent mb-6">Get a Quote</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-primary dark:text-accent mb-2 font-medium">First Name</label>
+                                <input name="firstName" type="text" placeholder="Enter your first name"
+                                    class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors dark:bg-dark-surface dark:text-dark-text"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="block text-primary dark:text-accent mb-2 font-medium">Last Name</label>
+                                <input name="lastName" type="text" placeholder="Enter your last name"
+                                    class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors dark:bg-dark-surface dark:text-dark-text"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-primary dark:text-accent mb-2 font-medium">Email</label>
+                            <input name="email" type="email" placeholder="Enter your email address"
+                                class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors dark:bg-dark-surface dark:text-dark-text"
+                                required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-primary dark:text-accent mb-2 font-medium">Phone</label>
+                            <input name="phone" type="tel" placeholder="Enter your phone number"
+                                class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors dark:bg-dark-surface dark:text-dark-text">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-primary dark:text-accent mb-2 font-medium">Message</label>
+                            <textarea name="message" rows="4" placeholder="Tell us about your requirements..."
+                                class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors dark:bg-dark-surface dark:text-dark-text"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-gradient-gold text-white py-3 rounded-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-bold">
+                            Get Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <div class="h-96 w-full border-t-4 border-accent">
+        <div class="w-full h-full">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.948560574921!2d85.9830866100777!3d20.99469898886836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a194b979be7c915%3A0x8b11ca96274b77a8!2sKaryon%20Resorts!5e0!3m2!1sen!2sin!4v1752972944151!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gradient-luxury w-full text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">🌿 Karyon <span class="text-accent">Resorts</span></h3>
+                    <p class="mb-4 text-cream">Your perfect getaway in Kalinga Nagar, Duburi, Jajpur. Experience luxury,
+                        comfort, and warm hospitality in a serene environment.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent transition-colors">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-accent transition-colors">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-accent">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#rooms" class="hover:text-accent transition-colors">Rooms</a></li>
+                        <li><a href="viewgallery.html" class="hover:text-accent transition-colors">Gallery</a></li>
+                        <li><a href="#about" class="hover:text-accent transition-colors">About</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-accent">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                            <span class="text-cream">Jajpur Road, Kalinga Nagar, Duburi, Jajpur, Odisha 755026</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <a href="tel:+919937038271" class="text-cream hover:text-accent transition-colors">+91 99370
+                                38271</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span class="text-cream">karyonduburi@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-lightbrown mt-8 pt-8 text-center">
+                <p class="text-cream">&copy; 2025 Karyon Resorts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 bg-gradient-gold text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl opacity-0 invisible transition-all duration-300 hover:shadow-2xl transform hover:scale-110">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Apply saved theme
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+            themeToggle.classList.add('active');
+            mobileThemeToggle.classList.add('active');
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.documentElement.classList.toggle('dark');
+            themeToggle.classList.toggle('active');
+            mobileThemeToggle.classList.toggle('active');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                const delay = el.dataset.delay || 0;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, delay * 1000);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                header.classList.remove('shadow-lg');
+
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // Back to Top Button
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
